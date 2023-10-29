@@ -54,11 +54,15 @@ def update_task(task_id, fields):
     task = db.session.get(Task, task_id)
     if not task:
         raise FileNotFoundError
-    task.title = fields['title']
-    task.description = fields['description']
-    task.due_date = datetime.strptime(
-        fields['due_date'].strip(), "%Y-%m-%d").date()
-    task.status = fields['status']
+    if 'title' in fields:
+        task.title = fields['title']
+    if 'description' in fields:
+        task.description = fields['description']
+    if 'due_date' in fields:
+        task.due_date = datetime.strptime(
+            fields['due_date'].strip(), "%Y-%m-%d").date()
+    if 'status' in fields:
+        task.status = fields['status']
     tags = fields['tags']
 
     task.set_tags(tags, remove_if_not_exist=True)
