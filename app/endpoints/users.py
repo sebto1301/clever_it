@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required
 
-from app.services import users
+from app.controllers import users
 
 user_bp = Blueprint('user', __name__)
 

@@ -8,6 +8,8 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), nullable=False)
 
+    db.Index('names', 'name')
+
     def __init__(self, name):
         regex_not_allowed_chars = r"[\d\,]"
         name = name.strip().capitalize()
