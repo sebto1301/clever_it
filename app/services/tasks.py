@@ -35,10 +35,7 @@ def task_to_dict(task):
 def get_tasks():
     """Get all tasks"""
     tasks = Task.query.all()
-    tasks_list = []
-    for task in tasks:
-        tasks_list.append(task_to_dict(task))
-    return tasks_list
+    return [task_to_dict(x) for x in tasks]
 
 
 def get_task(task_id):
