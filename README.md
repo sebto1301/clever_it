@@ -8,6 +8,7 @@ La API por defecto utiliza una base de datos sqlite, lo que permite ejecutarse e
 
 Modo local:
 ```
+    pip install -r requirements.txt 
     python run.py
 ```
 Docker:
